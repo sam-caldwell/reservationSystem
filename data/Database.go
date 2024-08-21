@@ -13,4 +13,6 @@ type Database struct {
 	reservationCapacity int
 
 	reservations map[string][]Reservation
+
+	waitlist []Reservation
 }
