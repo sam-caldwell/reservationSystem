@@ -25,7 +25,8 @@ func (db *Database) AddReservation(reservation *Reservation) (err error, respons
 	defer db.Unlock()
 
 	if len(db.reservations[dateKey]) >= db.reservationCapacity {
-		response.Status = "Time slot is full"
+		response.Status = "Time slot is full (we are adding you to our waitlist"
+		db.reservations[dateKey]=append(db.reservations[dateKey], *reservation)
 		return nil, response
 	}
 
