@@ -12,4 +12,5 @@ var Db = Database{
 	OpenHour:            defaultOpenHour,
 	CloseHour:           defaultCloseHour,
 	reservations:        make(map[string][]Reservation),
+	waitlist:            make(map[string][]Reservation),
 }
