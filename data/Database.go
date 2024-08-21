@@ -12,7 +12,7 @@ type Database struct {
 
 	reservationCapacity int
 
-	reservations map[string][]Reservation
+	reservations []Reservation
 
 	waitlist []Reservation
 }
