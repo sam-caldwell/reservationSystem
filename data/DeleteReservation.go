@@ -15,7 +15,7 @@ func (db *Database) DeleteReservation(reservation *Reservation) (err error, msg 
 		for i, existingRes := range resList {
 			if existingRes.Name == reservation.Name {
 				db.reservations[dateKey] = append(resList[:i], resList[i+1:]...)
-				if len(db.waitlist) > 0 {
+				if len(db.waitlist) > 0 && len(db.reservations[dateKey]) < db.reservationCapacity {
 					if err, _:=db.AddReservation(db.waitlist[0]); err != nil {
 						log.Printf("error pulling from waitlist: %v", err)
 					}
